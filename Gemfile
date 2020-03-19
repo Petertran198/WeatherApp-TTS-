@@ -65,4 +65,4 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'httparty', '~> 0.18.0'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'jquery-rails'
-
+gem 'geocoder', '~> 1.6', '>= 1.6.2'

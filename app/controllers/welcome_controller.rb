@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def test
-    response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip=27615,us&units=imperial&appid=#{ENV["open_weather_map_key"]}")
+    response = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?zip=27834,us&units=imperial&appid=#{ENV["open_weather_map_key"]}")
 
     @location = response["name"]
     @temp = response["main"]["temp"]
@@ -23,6 +23,9 @@ class WelcomeController < ApplicationController
           @weather_icon = response["weather"][0]["icon"]
           @weather_description = response["weather"][0]["description"]
           @windiness = response["wind"]["speed"]
+          @lat = response["coord"]["lat"]
+          @long = response["coord"]["lon"]
+          @state = Geocoder.search([@lat, @long])
       else
         @error = response["message"]
       end

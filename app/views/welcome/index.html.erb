@@ -5,4 +5,11 @@
     <%= submit_tag "Check Weather" %>
 <% end %>
 
-<%= @status.class %>
+<% if (@location != nil && @location != "") && (@error == "" || @error == nil) %> 
+<%= render 'weather'%>
+<% elsif @status == '404' %>
+<div class="text-danger">Error <%= @error %></div>
+
+
+<% end %>
+
